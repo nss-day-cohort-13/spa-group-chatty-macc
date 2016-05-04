@@ -21,11 +21,13 @@
 
   var darkTheme = document.getElementById("dark-theme");
   darkTheme.addEventListener("change", function(){
+    //TODO(adam): apply class for theme
     console.log("dark theme", event.target.checked);
   });
 
   var largeText = document.getElementById("large-text");
   largeText.addEventListener("change", function(){
+    //TODO(adam): apply class for theme
     console.log("large text", event.target.checked);
   });
 
