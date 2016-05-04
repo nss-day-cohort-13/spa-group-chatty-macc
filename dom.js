@@ -1,10 +1,9 @@
+/* jshint devel:true */
 /* globals Chatty */
 'use strict';
 
 (function() {
   var userInput = document.getElementById("user-input");
-  var messageBox = document.getElementById("message-box");
-
   userInput.addEventListener("keypress", function(event){
     if (event.which === 13) {
       Chatty.addMessage("message-box", userInput.value);
@@ -17,7 +16,7 @@
     console.log("clearButton");
     Array.from(document.getElementsByClassName("message")).forEach(function(element) {
       Chatty.removeElement(element.id);
-    })
+    });
   });
 
   var darkTheme = document.getElementById("dark-theme");
@@ -30,7 +29,12 @@
     console.log("large text", event.target.checked);
   });
 
-  Chatty.getMessagesArray().forEach(messageObj) {
-    Chatty.addMessage("message-box", messageObj.message);
-  };
+
+  function insertMessagesArray(messagesArray) {
+    messagesArray.forEach(function(messageObj) {
+      Chatty.addMessage("message-box", messageObj.message);
+    });
+  }
+
+  Chatty.loadJson(insertMessagesArray);
 })();
