@@ -1,34 +1,34 @@
 'use strict';
 
 var Chatty = (function(chat) {
-  let newId = 0;
-  let messages = [];
+  var newId = 0;
+  var messages = [];
 
-  function deleteMessageListener(event) {
+  function devareMessageListener(event) {
     chat.removeElement(event.target.parentElement.id);
   }
 
   chat.addMessage = function(parentId, messageString) {
-    let message = {
+    var message = {
       id: "message" + newId++,
       message: messageString
     };
     messages.push(message);
 
-    let messageElement = document.createElement("div");
+    var messageElement = document.createElement("div");
     messageElement.id = message.id;
     messageElement.className = "message";
     messageElement.innerHTML = `
       <span class="message-text">${message.message}</span>
-      <input type="button" class="delete-button" value="Delete">`;
+      <input type="button" class="devare-button" value="Devare">`;
     document.getElementById(parentId).appendChild(messageElement);
 
-    let deleteButton = messageElement.getElementsByClassName("delete-button")[0];
-    deleteButton.addEventListener("click", deleteMessageListener);
+    var devareButton = messageElement.getElementsByClassName("devare-button")[0];
+    devareButton.addEventListener("click", devareMessageListener);
   };
 
-  chat.deleteMessage = function(messageString) {
-    let messageIndex = messages.findIndex(function(elem) {
+  chat.devareMessage = function(messageString) {
+    var messageIndex = messages.findIndex(function(elem) {
       return elem.message === messageString;
     });
     messages.splice(messageIndex, 1);
