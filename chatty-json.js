@@ -1,6 +1,7 @@
-var Chatty = (function(json) {
+'use strict';
 
-  json.loadJSON = function (callback) {
+var Chatty = (function(json) {
+  json.loadJSON = function(callback) {
     var myRequest = new XMLHttpRequest();
 
     myRequest.addEventListener("load", function() {
@@ -10,8 +11,7 @@ var Chatty = (function(json) {
 
     myRequest.open("GET", "messages.json");
     myRequest.send();
-  }
+  };
 
   return json;
-
 }(Chatty || {}));
