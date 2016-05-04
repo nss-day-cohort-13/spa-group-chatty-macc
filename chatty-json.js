@@ -1,18 +1,15 @@
 var Chatty = (function(json) {
 
-  var messagesJSON;
+  json.loadJSON = function (callback) {
+    var myRequest = new XMLHttpRequest();
 
-  var myRequest = new XMLHttpRequest();
-  // parses the json via the function
-  myRequest.addEventListener("load", function() {
-    messagesJSON = JSON.parse(this.responseText);
-  });
-  myRequest.open("GET", "messages.json");
-  myRequest.send();
+    myRequest.addEventListener("load", function() {
+      var messagesJSON = JSON.parse(this.responseText);
+      callback(messagesJSON.messages);
+    });
 
-  json.getMessagesArray = function() {
-    var messages = messagesJSON.messages;
-    return messages;
+    myRequest.open("GET", "messages.json");
+    myRequest.send();
   }
 
   return json;
