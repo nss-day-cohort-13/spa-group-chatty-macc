@@ -36,5 +36,5 @@
     });
   }
 
-  Chatty.loadJson(insertMessagesArray);
+  Chatty.loadJSON(insertMessagesArray);
 })();
