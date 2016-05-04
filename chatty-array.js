@@ -4,7 +4,7 @@ var Chatty = (function(chat) {
   var newId = 0;
   var messages = [];
 
-  function devareMessageListener(event) {
+  function deleteMessageListener(event) {
     chat.removeElement(event.target.parentElement.id);
   }
 
@@ -20,14 +20,14 @@ var Chatty = (function(chat) {
     messageElement.className = "message";
     messageElement.innerHTML = `
       <span class="message-text">${message.message}</span>
-      <input type="button" class="devare-button" value="Devare">`;
+      <input type="button" class="delete-button" value="Delete">`;
     document.getElementById(parentId).appendChild(messageElement);
 
-    var devareButton = messageElement.getElementsByClassName("devare-button")[0];
-    devareButton.addEventListener("click", devareMessageListener);
+    var deleteButton = messageElement.getElementsByClassName("delete-button")[0];
+    deleteButton.addEventListener("click", deleteMessageListener);
   };
 
-  chat.devareMessage = function(messageString) {
+  chat.deleteMessage = function(messageString) {
     var messageIndex = messages.findIndex(function(elem) {
       return elem.message === messageString;
     });
