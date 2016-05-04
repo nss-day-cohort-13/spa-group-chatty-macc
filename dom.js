@@ -1,3 +1,4 @@
+/* globals Chatty */
 'use strict';
 
 (function() {
@@ -28,4 +29,8 @@
   largeText.addEventListener("change", function(){
     console.log("large text", event.target.checked);
   });
+
+  Chatty.getMessagesArray().forEach(messageObj) {
+    Chatty.addMessage("message-box", messageObj.message);
+  };
 })();
