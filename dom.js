@@ -8,6 +8,7 @@
     if (event.which === 13) {
       Chatty.addMessage("message-box", userInput.value);
       userInput.value = "";
+      clearButton.disabled = false;
     }
   });
 
@@ -17,6 +18,7 @@
     Array.from(document.getElementsByClassName("message")).forEach(function(element) {
       Chatty.removeElement(element.id);
     });
+    clearButton.disabled = true;
   });
 
   var darkTheme = document.getElementById("dark-theme");
