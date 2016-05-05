@@ -10,6 +10,11 @@ var Chatty = (function(chat) {
     chat.removeElement(event.target.parentElement.id);
   }
 
+  function formatTimestamp(ts) {
+    var date = new Date(ts);
+    var iso = date.toISOString();
+    return iso.replace(/(.+)T(.+)\..+/, '$2 $1');
+  }
 
   function editMessageListener(event) {
     var spanElement = event.target.parentElement.getElementsByClassName("message-text")[0];
@@ -19,20 +24,19 @@ var Chatty = (function(chat) {
   }
 
 
-  chat.addMessage = function(parentId, messageString) {
-    var message = {
-      id: "message" + newId++,
-      message: messageString
-    };
+  chat.addMessage = function(parentId, message) {
+    message.id = "message" + newId++;
     messages.push(message);
 
     var messageElement = document.createElement("div");
     messageElement.id = message.id;
     messageElement.className = "message";
     messageElement.innerHTML = `
+      <span class="message-user">${message.user}</span>
       <span class="message-text">${message.message}</span>
       <input type="button" class="edit-button" value="Edit">
-      <input type="button" class="delete-button" value="Delete">`;
+      <input type="button" class="delete-button" value="Delete">
+      <span class="message-time">${formatTimestamp(message.timestamp)}</span>`;
     document.getElementById(parentId).appendChild(messageElement);
 
     var deleteButton = messageElement.getElementsByClassName("delete-button")[0];
@@ -40,10 +44,7 @@ var Chatty = (function(chat) {
 
     var editButton = messageElement.getElementsByClassName("edit-button")[0];
     editButton.addEventListener("click", editMessageListener);
-
-
   };
-
 
   chat.deleteMessage = function(messageString) {
     var messageIndex = messages.findIndex(function(elem) {
@@ -54,4 +55,3 @@ var Chatty = (function(chat) {
 
   return chat;
 }(Chatty || {}));
-

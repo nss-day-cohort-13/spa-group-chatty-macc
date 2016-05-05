@@ -1,4 +1,3 @@
-/* jshint devel:true */
 /* globals Chatty */
 'use strict';
 
@@ -6,7 +5,14 @@
   var userInput = document.getElementById("user-input");
   userInput.addEventListener("keypress", function(event){
     if (event.which === 13) {
-      Chatty.addMessage("message-box", userInput.value);
+      var user = document.querySelector("input[name='user']:checked").value;
+
+      var message = {
+        message: userInput.value,
+        user: user,
+        timestamp: Date.now()
+      };
+      Chatty.addMessage("message-box", message);
       userInput.value = "";
       clearButton.disabled = false;
     }
@@ -14,7 +20,6 @@
 
   var clearButton = document.getElementById("clear-button");
   clearButton.addEventListener("click", function(){
-    console.log("clearButton");
     Array.from(document.getElementsByClassName("message")).forEach(function(element) {
       Chatty.removeElement(element.id);
     });
@@ -35,18 +40,15 @@
 
   function insertMessagesArray(messagesArray) {
     messagesArray.forEach(function(messageObj) {
-      Chatty.addMessage("message-box", messageObj.message);
+      Chatty.addMessage("message-box", messageObj);
     });
   }
 
 // event listeners for color picker
   var saveButton = document.getElementById("saveBtn");
   saveButton.addEventListener("click", function(){
-    console.log("saveButton");
-
     var newTheme = document.getElementById("colorTheme");
     var newFont = document.getElementById("colorFont");
-    console.log("color", newTheme.value, newFont.value);
 
     var header = document.getElementById("header");
     var body = document.getElementById("body");
