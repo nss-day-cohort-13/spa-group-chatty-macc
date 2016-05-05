@@ -6,9 +6,11 @@
   var userInput = document.getElementById("user-input");
   userInput.addEventListener("keypress", function(event){
     if (event.which === 13) {
+      var user = document.querySelector("input[name='user']:checked").value;
+
       var message = {
         message: userInput.value,
-        user: "Tester",   //TODO(adam): get user
+        user: user,
         timestamp: Date.now()
       };
       Chatty.addMessage("message-box", message);
