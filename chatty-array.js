@@ -34,9 +34,9 @@ var Chatty = (function(chat) {
     messageElement.innerHTML = `
       <span class="message-user">${message.user}</span>
       <span class="message-text">${message.message}</span>
-      <input type="button" class="edit-button" value="Edit">
-      <input type="button" class="delete-button" value="Delete">
-      <span class="message-time">${formatTimestamp(message.timestamp)}</span>`;
+      <span class="message-time">${formatTimestamp(message.timestamp)}</span>
+      <input type="button" class="btn btn-primary btn-xs delete-button" value="Delete">
+      <input type="button" class="btn btn-primary btn-xs edit-button" value="Edit">`;
     document.getElementById(parentId).appendChild(messageElement);
 
     var deleteButton = messageElement.getElementsByClassName("delete-button")[0];
