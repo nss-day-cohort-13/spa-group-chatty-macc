@@ -7,23 +7,34 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <nav>
-    <h1>Chatty!</h1>
-    <input id="user-input" type="text">
-    <input id="clear-button" type="button" value="Clear Messages">
-    <div class="checkboxes">
-      <input id="dark-theme" type="checkbox">
-      <label for="dark-theme">Dark Theme</label>
-      <input id="large-text" type="checkbox">
-      <label for="large-text">Large Text</label>
+  <div id="wrapper">
+
+    <nav>
+
+      <div class="top-level-nav-elements">
+        <h1>Chatty!</h1>
+        <input id="user-input" type="text">
+        <input class="button-success pure-button" id="clear-button" type="button" value="Clear Messages">
+      </div>
+
+      <div class="checkboxes">
+        <input id="dark-theme" type="checkbox">
+        <label for="dark-theme">Dark Theme</label>
+        <input id="large-text" type="checkbox">
+        <label for="large-text">Large Text</label>
+      </div>
+
+    </nav>
+
+    <p id="message-text">Messages:</p>
+    <div id="message-box">
+      <div class="message">
+        <span class="message-text">${message.message}</span>
+        <input type="button" class="delete-button" value="Delete">
+      </div>
     </div>
 
-  </nav>
-  <p>Messages:</p>
-  <div id="message-box">
-
   </div>
-
   <script src="chatty-array.js" type="text/javascript"></script>
   <script src="chatty-dom.js" type="text/javascript"></script>
   <script src="chatty-json.js" type="text/javascript"></script>
