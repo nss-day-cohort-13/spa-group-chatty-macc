@@ -1,4 +1,3 @@
-/* jshint devel:true */
 /* globals Chatty */
 'use strict';
 
@@ -21,7 +20,6 @@
 
   var clearButton = document.getElementById("clear-button");
   clearButton.addEventListener("click", function(){
-    console.log("clearButton");
     Array.from(document.getElementsByClassName("message")).forEach(function(element) {
       Chatty.removeElement(element.id);
     });
@@ -45,6 +43,18 @@
       Chatty.addMessage("message-box", messageObj);
     });
   }
+
+// event listeners for color picker
+  var saveButton = document.getElementById("saveBtn");
+  saveButton.addEventListener("click", function(){
+    var newTheme = document.getElementById("colorTheme");
+    var newFont = document.getElementById("colorFont");
+
+    var header = document.getElementById("header");
+    var body = document.getElementById("body");
+    header.style.background = newTheme.value;
+    body.style.color = newFont.value;
+  });
 
   Chatty.loadJSON(insertMessagesArray);
 })();
