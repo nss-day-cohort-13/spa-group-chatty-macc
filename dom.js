@@ -41,7 +41,7 @@
 
 // event listeners for color picker
   var saveButton = document.getElementById("saveBtn");
-    saveButton.addEventListener("click", function(){
+  saveButton.addEventListener("click", function(){
     console.log("saveButton");
 
     var newTheme = document.getElementById("colorTheme");
