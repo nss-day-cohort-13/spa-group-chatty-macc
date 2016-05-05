@@ -39,5 +39,20 @@
     });
   }
 
+// event listeners for color picker
+  var saveButton = document.getElementById("saveBtn");
+  saveButton.addEventListener("click", function(){
+    console.log("saveButton");
+
+    var newTheme = document.getElementById("colorTheme");
+    var newFont = document.getElementById("colorFont");
+    console.log("color", newTheme.value, newFont.value);
+
+    var header = document.getElementById("header");
+    var body = document.getElementById("body");
+    header.style.background = newTheme.value;
+    body.style.color = newFont.value;
+  });
+
   Chatty.loadJSON(insertMessagesArray);
 })();

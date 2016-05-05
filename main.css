@@ -129,7 +129,6 @@ h1 {
 
 #message-box {
   border-top: 3px solid #237b99;
-  height: 200px;
   padding: 20px;
 }
 
@@ -143,4 +142,14 @@ h1 {
 
 .dark-theme .message {
   background-color: #272424;
+}
+
+
+/*css for the color picker*/
+.btn {
+  background: green;
+}
+
+.modal-header {
+  background: #3BCEFF;
 }
