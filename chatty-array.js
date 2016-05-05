@@ -8,11 +8,8 @@ var Chatty = (function(chat) {
     chat.removeElement(event.target.parentElement.id);
   }
 
-  chat.addMessage = function(parentId, messageString) {
-    var message = {
-      id: "message" + newId++,
-      message: messageString
-    };
+  chat.addMessage = function(parentId, message) {
+    message.id = "message" + newId++;
     messages.push(message);
 
     var messageElement = document.createElement("div");

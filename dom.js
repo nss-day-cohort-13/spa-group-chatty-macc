@@ -6,7 +6,12 @@
   var userInput = document.getElementById("user-input");
   userInput.addEventListener("keypress", function(event){
     if (event.which === 13) {
-      Chatty.addMessage("message-box", userInput.value);
+      var message = {
+        message: userInput.value,
+        user: "Tester",   //TODO(adam): get user
+        timestamp: Date.now()
+      };
+      Chatty.addMessage("message-box", message);
       userInput.value = "";
       clearButton.disabled = false;
     }
@@ -35,7 +40,7 @@
 
   function insertMessagesArray(messagesArray) {
     messagesArray.forEach(function(messageObj) {
-      Chatty.addMessage("message-box", messageObj.message);
+      Chatty.addMessage("message-box", messageObj);
     });
   }
 
