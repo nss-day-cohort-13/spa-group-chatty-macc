@@ -44,6 +44,7 @@ nav {
   position: fixed;
   z-index: 10;
   width: 100%;
+  text-align: center;
 }
 
 .dark-theme nav {
@@ -110,14 +111,10 @@ h1 {
 }
 
 .checkboxes {
-  margin: 2px;
-  margin-left: 34%;
   display: inline;
 }
 
 .top-level-nav-elements {
-  margin-left: 9%;
-  margin-bottom: 1%;
   padding: 10px 5px
 }
 
@@ -134,4 +131,16 @@ h1 {
   border-top: 3px solid #237b99;
   height: 200px;
   padding: 20px;
+}
+
+/* adding below, this line was the end of file */
+.message {
+  padding: 8px;
+  margin: 8px;
+  border: 2px solid #3BCEFF;
+  border-radius: 10px;
+}
+
+.dark-theme .message {
+  background-color: #272424;
 }
