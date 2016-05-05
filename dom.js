@@ -27,16 +27,10 @@
   });
 
   var bodyElement = document.querySelector("body");
-  var darkTheme = document.getElementById("dark-theme");
-  darkTheme.addEventListener("change", function(){
-    bodyElement.classList.toggle("dark-theme", event.target.checked);
-  });
-
   var largeText = document.getElementById("large-text");
   largeText.addEventListener("change", function(){
     bodyElement.classList.toggle("large-text", event.target.checked);
   });
-
 
   function insertMessagesArray(messagesArray) {
     messagesArray.forEach(function(messageObj) {
@@ -52,7 +46,7 @@
 
     var header = document.getElementById("header");
     var body = document.getElementById("body");
-    header.style.background = newTheme.value;
+    body.style.background = newTheme.value;
     body.style.color = newFont.value;
   });
 
